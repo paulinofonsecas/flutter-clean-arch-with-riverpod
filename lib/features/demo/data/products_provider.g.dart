@@ -6,325 +6,198 @@ part of 'products_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$productsHash() => r'34898f12385917255d4890ca24f7ad283fb3f6ab';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-abstract class _$Products
-    extends BuildlessAutoDisposeAsyncNotifier<ProductsResponseDto> {
-  late final int page;
-  late final int size;
-
-  FutureOr<ProductsResponseDto> build({int page = 0, int size = 10});
-}
-
-/// See also [Products].
 @ProviderFor(Products)
-const productsProvider = ProductsFamily();
+final productsProvider = ProductsFamily._();
 
-/// See also [Products].
-class ProductsFamily extends Family<AsyncValue<ProductsResponseDto>> {
-  /// See also [Products].
-  const ProductsFamily();
+final class ProductsProvider
+    extends $AsyncNotifierProvider<Products, ProductsResponseDto> {
+  ProductsProvider._({
+    required ProductsFamily super.from,
+    required ({int page, int size}) super.argument,
+  }) : super(
+         retry: null,
+         name: r'productsProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
-  /// See also [Products].
-  ProductsProvider call({int page = 0, int size = 10}) {
-    return ProductsProvider(page: page, size: size);
+  @override
+  String debugGetCreateSourceHash() => _$productsHash();
+
+  @override
+  String toString() {
+    return r'productsProvider'
+        ''
+        '$argument';
   }
 
+  @$internal
   @override
-  ProductsProvider getProviderOverride(covariant ProductsProvider provider) {
-    return call(page: provider.page, size: provider.size);
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'productsProvider';
-}
-
-/// See also [Products].
-class ProductsProvider
-    extends
-        AutoDisposeAsyncNotifierProviderImpl<Products, ProductsResponseDto> {
-  /// See also [Products].
-  ProductsProvider({int page = 0, int size = 10})
-    : this._internal(
-        () =>
-            Products()
-              ..page = page
-              ..size = size,
-        from: productsProvider,
-        name: r'productsProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$productsHash,
-        dependencies: ProductsFamily._dependencies,
-        allTransitiveDependencies: ProductsFamily._allTransitiveDependencies,
-        page: page,
-        size: size,
-      );
-
-  ProductsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.page,
-    required this.size,
-  }) : super.internal();
-
-  final int page;
-  final int size;
-
-  @override
-  FutureOr<ProductsResponseDto> runNotifierBuild(covariant Products notifier) {
-    return notifier.build(page: page, size: size);
-  }
-
-  @override
-  Override overrideWith(Products Function() create) {
-    return ProviderOverride(
-      origin: this,
-      override: ProductsProvider._internal(
-        () =>
-            create()
-              ..page = page
-              ..size = size,
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        page: page,
-        size: size,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeAsyncNotifierProviderElement<Products, ProductsResponseDto>
-  createElement() {
-    return _ProductsProviderElement(this);
-  }
+  Products create() => Products();
 
   @override
   bool operator ==(Object other) {
-    return other is ProductsProvider &&
-        other.page == page &&
-        other.size == size;
+    return other is ProductsProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, page.hashCode);
-    hash = _SystemHash.combine(hash, size.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin ProductsRef on AutoDisposeAsyncNotifierProviderRef<ProductsResponseDto> {
-  /// The parameter `page` of this provider.
-  int get page;
+String _$productsHash() => r'34898f12385917255d4890ca24f7ad283fb3f6ab';
 
-  /// The parameter `size` of this provider.
-  int get size;
+final class ProductsFamily extends $Family
+    with
+        $ClassFamilyOverride<
+          Products,
+          AsyncValue<ProductsResponseDto>,
+          ProductsResponseDto,
+          FutureOr<ProductsResponseDto>,
+          ({int page, int size})
+        > {
+  ProductsFamily._()
+    : super(
+        retry: null,
+        name: r'productsProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  ProductsProvider call({int page = 0, int size = 10}) =>
+      ProductsProvider._(argument: (page: page, size: size), from: this);
+
+  @override
+  String toString() => r'productsProvider';
 }
 
-class _ProductsProviderElement
+abstract class _$Products extends $AsyncNotifier<ProductsResponseDto> {
+  late final _$args = ref.$arg as ({int page, int size});
+  int get page => _$args.page;
+  int get size => _$args.size;
+
+  FutureOr<ProductsResponseDto> build({int page = 0, int size = 10});
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final ref =
+        this.ref as $Ref<AsyncValue<ProductsResponseDto>, ProductsResponseDto>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<ProductsResponseDto>, ProductsResponseDto>,
+              AsyncValue<ProductsResponseDto>,
+              Object?,
+              Object?
+            >;
+    element.handleCreate(
+      ref,
+      () => build(page: _$args.page, size: _$args.size),
+    );
+  }
+}
+
+@ProviderFor(InfiniteProducts)
+final infiniteProductsProvider = InfiniteProductsFamily._();
+
+final class InfiniteProductsProvider
     extends
-        AutoDisposeAsyncNotifierProviderElement<Products, ProductsResponseDto>
-    with ProductsRef {
-  _ProductsProviderElement(super.provider);
+        $AsyncNotifierProvider<InfiniteProducts, List<ProductsResponseDto>> {
+  InfiniteProductsProvider._({
+    required InfiniteProductsFamily super.from,
+    required int super.argument,
+  }) : super(
+         retry: null,
+         name: r'infiniteProductsProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
   @override
-  int get page => (origin as ProductsProvider).page;
+  String debugGetCreateSourceHash() => _$infiniteProductsHash();
+
   @override
-  int get size => (origin as ProductsProvider).size;
+  String toString() {
+    return r'infiniteProductsProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  InfiniteProducts create() => InfiniteProducts();
+
+  @override
+  bool operator ==(Object other) {
+    return other is InfiniteProductsProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
 }
 
 String _$infiniteProductsHash() => r'6c43d61b65417cc59c08f8c312912b4b5829d1cc';
 
-abstract class _$InfiniteProducts
-    extends BuildlessAutoDisposeAsyncNotifier<List<ProductsResponseDto>> {
-  late final int size;
-
-  FutureOr<List<ProductsResponseDto>> build({int size = 10});
-}
-
-/// See also [InfiniteProducts].
-@ProviderFor(InfiniteProducts)
-const infiniteProductsProvider = InfiniteProductsFamily();
-
-/// See also [InfiniteProducts].
-class InfiniteProductsFamily
-    extends Family<AsyncValue<List<ProductsResponseDto>>> {
-  /// See also [InfiniteProducts].
-  const InfiniteProductsFamily();
-
-  /// See also [InfiniteProducts].
-  InfiniteProductsProvider call({int size = 10}) {
-    return InfiniteProductsProvider(size: size);
-  }
-
-  @override
-  InfiniteProductsProvider getProviderOverride(
-    covariant InfiniteProductsProvider provider,
-  ) {
-    return call(size: provider.size);
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'infiniteProductsProvider';
-}
-
-/// See also [InfiniteProducts].
-class InfiniteProductsProvider
-    extends
-        AutoDisposeAsyncNotifierProviderImpl<
+final class InfiniteProductsFamily extends $Family
+    with
+        $ClassFamilyOverride<
           InfiniteProducts,
-          List<ProductsResponseDto>
+          AsyncValue<List<ProductsResponseDto>>,
+          List<ProductsResponseDto>,
+          FutureOr<List<ProductsResponseDto>>,
+          int
         > {
-  /// See also [InfiniteProducts].
-  InfiniteProductsProvider({int size = 10})
-    : this._internal(
-        () => InfiniteProducts()..size = size,
-        from: infiniteProductsProvider,
+  InfiniteProductsFamily._()
+    : super(
+        retry: null,
         name: r'infiniteProductsProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$infiniteProductsHash,
-        dependencies: InfiniteProductsFamily._dependencies,
-        allTransitiveDependencies:
-            InfiniteProductsFamily._allTransitiveDependencies,
-        size: size,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
       );
 
-  InfiniteProductsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.size,
-  }) : super.internal();
-
-  final int size;
+  InfiniteProductsProvider call({int size = 10}) =>
+      InfiniteProductsProvider._(argument: size, from: this);
 
   @override
-  FutureOr<List<ProductsResponseDto>> runNotifierBuild(
-    covariant InfiniteProducts notifier,
-  ) {
-    return notifier.build(size: size);
-  }
-
-  @override
-  Override overrideWith(InfiniteProducts Function() create) {
-    return ProviderOverride(
-      origin: this,
-      override: InfiniteProductsProvider._internal(
-        () => create()..size = size,
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        size: size,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeAsyncNotifierProviderElement<
-    InfiniteProducts,
-    List<ProductsResponseDto>
-  >
-  createElement() {
-    return _InfiniteProductsProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is InfiniteProductsProvider && other.size == size;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, size.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
+  String toString() => r'infiniteProductsProvider';
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin InfiniteProductsRef
-    on AutoDisposeAsyncNotifierProviderRef<List<ProductsResponseDto>> {
-  /// The parameter `size` of this provider.
-  int get size;
-}
+abstract class _$InfiniteProducts
+    extends $AsyncNotifier<List<ProductsResponseDto>> {
+  late final _$args = ref.$arg as int;
+  int get size => _$args;
 
-class _InfiniteProductsProviderElement
-    extends
-        AutoDisposeAsyncNotifierProviderElement<
-          InfiniteProducts,
-          List<ProductsResponseDto>
-        >
-    with InfiniteProductsRef {
-  _InfiniteProductsProviderElement(super.provider);
-
+  FutureOr<List<ProductsResponseDto>> build({int size = 10});
+  @$mustCallSuper
   @override
-  int get size => (origin as InfiniteProductsProvider).size;
+  void runBuild() {
+    final ref =
+        this.ref
+            as $Ref<
+              AsyncValue<List<ProductsResponseDto>>,
+              List<ProductsResponseDto>
+            >;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<
+                AsyncValue<List<ProductsResponseDto>>,
+                List<ProductsResponseDto>
+              >,
+              AsyncValue<List<ProductsResponseDto>>,
+              Object?,
+              Object?
+            >;
+    element.handleCreate(ref, () => build(size: _$args));
+  }
 }
-
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

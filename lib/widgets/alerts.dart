@@ -1,4 +1,3 @@
-import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 
 import '../i18n/translations.g.dart';
@@ -24,7 +23,7 @@ class AlertUtils {
       builder: (context) => AlertDialog(
         content: Text(
           message,
-          style: TextStyle(color: context.theme.colorScheme.error),
+          style: TextStyle(color: Theme.of(context).colorScheme.error),
         ),
         actions: actions,
       ),

@@ -20,7 +20,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.10.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -36,48 +36,45 @@ dependencies:
   # Standard flutter controls (e.g. back button's tooltip) will also pick the right locale
   flutter_localizations:
     sdk: flutter
-  slang: 4.5.0 # Efficient i18n solution with strong typing
-  slang_flutter: 4.5.0 # Flutter bindings for slang
+  slang: ^4.12.1 # Efficient i18n solution with strong typing
+  slang_flutter: ^4.12.1 # Flutter bindings for slang
 
   # UI Components & Styling
   cupertino_icons: 1.0.8 # iOS style icons
-  flutter_svg: 2.0.17 # SVG rendering support
+  flutter_svg: ^2.2.3 # SVG rendering support
   gap: 3.0.1 # Convenient spacing widgets
-  google_fonts: 6.2.1 # Easy integration of Google Fonts
+  google_fonts: ^8.0.1 # Easy integration of Google Fonts
   flutter_screenutil: 5.9.3 # Responsive UI utilities
-  flutter_native_splash: 2.4.5 # Native splash screen configuration
+  flutter_native_splash: ^2.4.7 # Native splash screen configuration
   flutter_animate: 4.5.2 # Easy-to-use animations
   defer_pointer: 0.0.2 # Better touch event handling
   cached_network_image: 3.4.1 # Efficient network image caching and loading
 
   # State Management & DI
-  hooks_riverpod: 2.6.1 # State management with dependency injection
-  flutter_hooks: 0.21.2 # Reusable stateful logic
-  riverpod_annotation: 2.6.1 # Code generation for Riverpod
+  hooks_riverpod: 3.1.0 # State management with dependency injection
+  flutter_hooks: ^0.21.3+1 # Reusable stateful logic
+  riverpod_annotation: ^4.0.0 # Code generation for Riverpod
 
   # Routing & Navigation
-  go_router: 14.8.1 # Declarative routing solution
+  go_router: ^17.1.0 # Declarative routing solution
 
   # Forms & Validation
-  reactive_forms: 17.0.1 # Reactive form handling
-  form_builder_validators: 11.1.2 # Form validation utilities
-  reactive_phone_form_field: 5.0.0 # Phone number input & validation
+  reactive_forms: ^18.2.2 # Reactive form handling
+  form_builder_validators: ^11.3.0 # Form validation utilities
+  reactive_phone_form_field: ^5.0.2 # Phone number input & validation
 
   # Networking & Storage
-  dio: 5.8.0+1 # HTTP client
-  flutter_secure_storage: 9.2.4 # Secure storage for sensitive data
-  shared_preferences: 2.5.2 # Key-value storage
+  dio: ^5.9.1 # HTTP client
+  flutter_secure_storage: ^10.0.0 # Secure storage for sensitive data
+  shared_preferences: ^2.5.4 # Key-value storage
 
   # Theming & Styling
-  theme_tailor_annotation: # Type-safe theme management
-    git:
-      url: https://github.com/Iteo/theme_tailor.git
-      path: packages/theme_tailor_annotation
-      ref: main
-  awesome_extensions: 2.0.20 # Useful Flutter extensions
+  theme_tailor_annotation: ^3.1.2 # Theme code generation annotations
+  theme_tailor: 3.1.1 # Theme code generation runtime
+  awesome_extensions: 2.1.0 # Useful Flutter extensions
 
   # Data Modeling & Serialization
-  freezed_annotation: 3.0.0 # Immutable model generation
+  freezed_annotation: 3.1.0 # Immutable model generation
   json_annotation: 4.9.0 # JSON serialization
   collection: 1.19.1 # Additional collection types and utilities
 
@@ -90,27 +87,21 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: 5.0.0 # Recommended Flutter lints
-  custom_lint: 0.7.5 # Custom lint rules
-  riverpod_lint: 2.6.5 # Riverpod-specific lints
+  flutter_lints: ^6.0.0 # Recommended Flutter lints
+  custom_lint: 0.8.1 # Custom lint rules
+  riverpod_lint: ^3.1.0 # Riverpod-specific lints
 
   # Code Generation
-  build_runner: 2.4.15 # Code generation orchestration
-  slang_build_runner: 4.5.0 # i18n code generation
-  riverpod_generator: 2.6.5 # Riverpod code generation
-  theme_tailor: # Theme code generation
-    git:
-      url: https://github.com/Iteo/theme_tailor.git
-      path: packages/theme_tailor
-      ref: main
-  freezed: 3.0.3 # Data class generation
-  json_serializable: 6.9.4 # JSON serialization generation
-  flutter_gen_runner: 5.10.0 # Asset code generation
+  build_runner: ^2.11.1 # Code generation orchestration
+  slang_build_runner: ^4.12.1 # i18n code generation
+  riverpod_generator: ^4.0.0+1 # Riverpod code generation
+  json_serializable: 6.11.2 # JSON serialization generation
+  flutter_gen_runner: 5.12.0 # Asset code generation
 
   # Development Tools
-  flutter_launcher_icons: 0.14.3 # App icon generation
+  flutter_launcher_icons: ^0.14.4 # App icon generation
   change_app_package_name: 1.5.0 # Package name modification
-  rename: 3.0.2 # Project renaming utility
+  rename: ^3.1.0 # Project renaming utility
 
   # Git Hooks & Commit Management
   commitlint_cli: 0.8.1 # Commit message linting
@@ -119,18 +110,9 @@ dev_dependencies:
   yaml: 3.1.3 # YAML parsing for custom scripts
 
 dependency_overrides:
-  # TODO: Workaround before theme_tailor ^3.0.2 supporting analyzer 7.0.0 and source_gen 2.0.0 is published
-  theme_tailor:
-    git:
-      url: https://github.com/Iteo/theme_tailor.git
-      path: packages/theme_tailor
-      ref: main
-  theme_tailor_annotation:
-    git:
-      url: https://github.com/Iteo/theme_tailor.git
-      path: packages/theme_tailor_annotation
-      ref: main
-
+  # Override dependencies here if necessary, e.g. to resolve version conflicts.
+  # Example:
+  # dio: 5.8.0+1
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -175,3 +157,14 @@ flutter:
 
 lint_staged:
   "{lib,test}/**.dart": dart format
+
+
+
+
+
+
+
+
+
+
+

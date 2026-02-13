@@ -6,23 +6,44 @@ part of 'secure_storage.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$secureStorageHash() => r'b695d10535c8124be6ab4341310025a9068abe28';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [secureStorage].
 @ProviderFor(secureStorage)
-final secureStorageProvider = AutoDisposeFutureProvider<SecureStorage>.internal(
-  secureStorage,
-  name: r'secureStorageProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$secureStorageHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final secureStorageProvider = SecureStorageProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef SecureStorageRef = AutoDisposeFutureProviderRef<SecureStorage>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class SecureStorageProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<SecureStorage>,
+          SecureStorage,
+          FutureOr<SecureStorage>
+        >
+    with $FutureModifier<SecureStorage>, $FutureProvider<SecureStorage> {
+  SecureStorageProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'secureStorageProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$secureStorageHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<SecureStorage> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<SecureStorage> create(Ref ref) {
+    return secureStorage(ref);
+  }
+}
+
+String _$secureStorageHash() => r'b695d10535c8124be6ab4341310025a9068abe28';

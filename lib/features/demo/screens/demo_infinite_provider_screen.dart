@@ -38,8 +38,8 @@ class DemoInfiniteProviderScreen extends HookConsumerWidget {
     );
 
     final products = useMemoized(
-      () => productsAsync.valueOrNull?.expand((element) => element.products).toList() ?? [],
-      [productsAsync.valueOrNull],
+      () => productsAsync.mapOrNull()?.expand((element) => element.products).toList() ?? [],
+      [productsAsync.mapOrNull()],
     );
 
     return PageScaffold(

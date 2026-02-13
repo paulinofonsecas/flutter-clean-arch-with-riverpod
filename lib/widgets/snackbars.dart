@@ -1,4 +1,3 @@
-import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 
 import '../i18n/translations.g.dart';
@@ -20,7 +19,9 @@ class SnackBarUtils {
     ScaffoldMessenger.of(context).clearSnackBars();
     return ScaffoldMessenger.of(
       context,
-    ).showSnackBar(SnackBar(content: Text(message, style: TextStyle(color: context.theme.colorScheme.error))));
+    ).showSnackBar(
+      SnackBar(content: Text(message, style: TextStyle(color: Theme.of(context).colorScheme.error))),
+    );
   }
 
   static ScaffoldFeatureController<SnackBar, SnackBarClosedReason> handleError(

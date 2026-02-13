@@ -3,6 +3,7 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -10,12 +11,12 @@ import 'package:slang/generated.dart';
 import 'translations.g.dart';
 
 // Path: <root>
-class TranslationsFr extends Translations {
+class TranslationsFr extends Translations with BaseTranslations<AppLocale, Translations> {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsFr({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	TranslationsFr({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.fr,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -33,6 +34,9 @@ class TranslationsFr extends Translations {
 	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
 
 	late final TranslationsFr _root = this; // ignore: unused_field
+
+	@override 
+	TranslationsFr $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsFr(meta: meta ?? this.$meta);
 
 	// Translations
 	@override late final TranslationsApiFr api = TranslationsApiFr._(_root);
@@ -161,65 +165,39 @@ class TranslationsDemoErrorsTypesFr extends TranslationsDemoErrorsTypesEn {
 	@override String get info => 'Info';
 }
 
-/// Flat map(s) containing all translations.
+/// The flat map containing all translations for locale <fr>.
 /// Only for edge cases! For simple maps, use the map function of this library.
+///
+/// The Dart AOT compiler has issues with very large switch statements,
+/// so the map is split into smaller functions (512 entries each).
 extension on TranslationsFr {
 	dynamic _flatMapFunction(String path) {
-		switch (path) {
-			case 'api.email_already_registered': return 'Cette adresse email est déjà enregistrée.';
-			case 'api.system_error_occurred': return 'Une erreur système est survenue, veuillez réessayer plus tard.';
-			case 'auth.login': return 'Connexion';
-			case 'auth.logout': return 'Déconnexion';
-			case 'auth.register': return 'Inscription';
-			case 'common.email': return 'Email';
-			case 'common.language': return 'Langue';
-			case 'common.home': return 'Accueil';
-			case 'common.demo': return 'Démo';
-			case 'demo.welcome': return ({required Object name}) => 'Bienvenue ${name} !';
-			case 'demo.items': return ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('fr'))(count,
-				zero: 'Aucun élément',
-				one: 'Un élément',
-				two: 'Deux éléments',
-				few: 'Quelques éléments',
-				many: 'Beaucoup d\'éléments',
-				other: '${count} éléments',
-			);
-			case 'demo.apples': return ({required num appleCount}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('fr'))(appleCount,
-				zero: 'pas de pommes',
-				one: 'une pomme',
-				other: '${appleCount} pommes',
-			);
-			case 'demo.bananas': return ({required num bananaCount}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('fr'))(bananaCount,
-				zero: 'pas de bananes',
-				one: 'une banane',
-				other: '${bananaCount} bananes',
-			);
-			case 'demo.fruits': return ({required num appleCount, required num bananaCount}) => 'J\'ai ${_root.demo.apples(appleCount: appleCount)} et ${_root.demo.bananas(bananaCount: bananaCount)}';
-			case 'demo.gender': return ({required Gender context, required Object name}) {
-				switch (context) {
-					case Gender.male:
-						return 'C\'est ${name}';
-					case Gender.female:
-						return 'C\'est ${name}';
-					case Gender.other:
-						return 'Ce sont ${name}';
-				}
-			};
-			case 'demo.rich_welcome': return ({required InlineSpan name}) => TextSpan(children: [
-				const TextSpan(text: 'Bon retour '),
-				name,
-				const TextSpan(text: ' !'),
-			]);
-			case 'demo.last_login': return ({required DateTime date}) => 'Dernière connexion : ${DateFormat.yMd().add_jm().format(date)}';
-			case 'demo.steps.titles.0': return 'Bienvenue';
-			case 'demo.steps.titles.1': return 'Profil';
-			case 'demo.steps.titles.2': return 'Préférences';
-			case 'demo.steps.titles.3': return 'Terminé';
-			case 'demo.errors.types.warning': return 'Avertissement';
-			case 'demo.errors.types.error': return 'Erreur';
-			case 'demo.errors.types.info': return 'Info';
-			default: return null;
-		}
+		return switch (path) {
+			'api.email_already_registered' => 'Cette adresse email est déjà enregistrée.',
+			'api.system_error_occurred' => 'Une erreur système est survenue, veuillez réessayer plus tard.',
+			'auth.login' => 'Connexion',
+			'auth.logout' => 'Déconnexion',
+			'auth.register' => 'Inscription',
+			'common.email' => 'Email',
+			'common.language' => 'Langue',
+			'common.home' => 'Accueil',
+			'common.demo' => 'Démo',
+			'demo.welcome' => ({required Object name}) => 'Bienvenue ${name} !',
+			'demo.items' => ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('fr'))(count, zero: 'Aucun élément', one: 'Un élément', two: 'Deux éléments', few: 'Quelques éléments', many: 'Beaucoup d\'éléments', other: '${count} éléments', ), 
+			'demo.apples' => ({required num appleCount}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('fr'))(appleCount, zero: 'pas de pommes', one: 'une pomme', other: '${appleCount} pommes', ), 
+			'demo.bananas' => ({required num bananaCount}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('fr'))(bananaCount, zero: 'pas de bananes', one: 'une banane', other: '${bananaCount} bananes', ), 
+			'demo.fruits' => ({required num appleCount, required num bananaCount}) => 'J\'ai ${_root.demo.apples(appleCount: appleCount)} et ${_root.demo.bananas(bananaCount: bananaCount)}',
+			'demo.gender' => ({required Gender context, required Object name}) { switch (context) { case Gender.male: return 'C\'est ${name}'; case Gender.female: return 'C\'est ${name}'; case Gender.other: return 'Ce sont ${name}'; } }, 
+			'demo.rich_welcome' => ({required InlineSpan name}) => TextSpan(children: [ const TextSpan(text: 'Bon retour '), name, const TextSpan(text: ' !'), ]), 
+			'demo.last_login' => ({required DateTime date}) => 'Dernière connexion : ${DateFormat.yMd().add_jm().format(date)}',
+			'demo.steps.titles.0' => 'Bienvenue',
+			'demo.steps.titles.1' => 'Profil',
+			'demo.steps.titles.2' => 'Préférences',
+			'demo.steps.titles.3' => 'Terminé',
+			'demo.errors.types.warning' => 'Avertissement',
+			'demo.errors.types.error' => 'Erreur',
+			'demo.errors.types.info' => 'Info',
+			_ => null,
+		};
 	}
 }
-

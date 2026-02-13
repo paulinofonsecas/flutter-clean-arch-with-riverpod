@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.ouedyan.fluttermobiletemplate"
+    namespace = "ao.bitkabir.tudkabir"
     compileSdk = flutter.compileSdkVersion
     // ndkVersion = flutter.ndkVersion // Default: 26.3.11579264
     // The following plugins depend on a different Android NDK version:
@@ -27,7 +27,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.ouedyan.fluttermobiletemplate"
+        applicationId = "ao.bitkabir.tudkabir"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

@@ -51,12 +51,12 @@ class RoutePage extends ConsumerWidget {
     return PopScope<Object?>(
       canPop: true,
       onPopInvokedWithResult: (didPop, result) {
-        print("PopScope onPopInvokedWithResult, didPop: $didPop, result: $result");
+        debugPrint("PopScope onPopInvokedWithResult, didPop: $didPop, result: $result");
 
         if (didPop) {
           // Without addPostFrameCallback, refreshes navigation too quickly thus blocking the current pop
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            ref.read(popNotifierProvider).notifyPop();
+            ref.read(popProvider).notifyPop();
           });
         }
       },

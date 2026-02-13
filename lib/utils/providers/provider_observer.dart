@@ -1,41 +1,26 @@
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class AppProviderObserver extends ProviderObserver {
+final class AppProviderObserver extends ProviderObserver {
+  const AppProviderObserver();
+
   @override
-  void didAddProvider(
-    ProviderBase<Object?> provider,
-    Object? value,
-    ProviderContainer container,
-  ) {
-    debugPrint('Provider $provider was initialized with $value');
+  void didAddProvider(ProviderObserverContext context, Object? value) {
+    debugPrint('Provider added: ${context.provider.name ?? context.provider.runtimeType}, value: $value');
+    super.didAddProvider(context, value);
   }
 
   @override
-  void didDisposeProvider(
-    ProviderBase<Object?> provider,
-    ProviderContainer container,
-  ) {
-    debugPrint('Provider $provider was disposed');
+  void didUpdateProvider(ProviderObserverContext context, Object? previousValue, Object? newValue) {
+    debugPrint(
+      'Provider updated: ${context.provider.name ?? context.provider.runtimeType}, previous value: $previousValue, new value: $newValue',
+    );
+    super.didUpdateProvider(context, previousValue, newValue);
   }
 
   @override
-  void didUpdateProvider(
-    ProviderBase<Object?> provider,
-    Object? previousValue,
-    Object? newValue,
-    ProviderContainer container,
-  ) {
-    debugPrint('Provider $provider updated from $previousValue to $newValue');
-  }
-
-  @override
-  void providerDidFail(
-    ProviderBase<Object?> provider,
-    Object error,
-    StackTrace stackTrace,
-    ProviderContainer container,
-  ) {
-    debugPrint('Provider $provider threw $error at $stackTrace');
+  void didDisposeProvider(ProviderObserverContext context) {
+    debugPrint('Provider disposed: ${context.provider.name ?? context.provider.runtimeType}');
+    super.didDisposeProvider(context);
   }
 }
